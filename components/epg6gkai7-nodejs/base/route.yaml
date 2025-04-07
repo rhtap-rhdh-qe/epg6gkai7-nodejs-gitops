@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: epg6gkai7-nodejs
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: epg6gkai7-nodejs 
+  name: epg6gkai7-nodejs
+spec:
+  port:
+    targetPort: 3001 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: epg6gkai7-nodejs
+    weight: 100 
